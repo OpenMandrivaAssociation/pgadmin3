@@ -1,5 +1,5 @@
 %define name    pgadmin3
-%define version 1.6.3
+%define version 1.8.0
 %define release %mkrel 1
 %define Summary Graphical client for PostgreSQL
 
@@ -9,7 +9,7 @@ Version:        %{version}
 Release:        %{release}
 License:        Artistic
 Group:          Databases
-Source0:        %{name}-%{version}.tar.bz2
+Source0:        %{name}-%{version}.tar.gz
 URL:            http://www.pgadmin.org/
 
 BuildRequires:  wxgtku-devel >= 2.8
@@ -33,7 +33,7 @@ PostgreSQL Tools.
 rm -rf %{buildroot}
 %makeinstall
 
-cp -f src/include/images/elephant48.xpm %{buildroot}%{_datadir}/%{name}/%{name}.xpm
+cp -f pgadmin/include/images/elephant48.xpm %{buildroot}%{_datadir}/%{name}/%{name}.xpm
 cp -f pkg/%{name}.desktop %{buildroot}/%{_datadir}/%{name}/%{name}.desktop
 
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications
@@ -50,9 +50,9 @@ Categories=X-MandrivaLinux-MoreApplications-Databases;Database;
 EOF
 
 install -d $RPM_BUILD_ROOT{%{_iconsdir},%{_miconsdir},%{_liconsdir}}
-convert -size 16x16 src/include/images/elephant32.xpm $RPM_BUILD_ROOT%{_miconsdir}/%{name}.png
-convert -size 32x32 src/include/images/elephant32.xpm $RPM_BUILD_ROOT%{_iconsdir}/%{name}.png
-convert -size 48x48 src/include/images/elephant48.xpm $RPM_BUILD_ROOT%{_liconsdir}/%{name}.png
+convert -size 16x16 pgadmin/include/images/elephant32.xpm $RPM_BUILD_ROOT%{_miconsdir}/%{name}.png
+convert -size 32x32 pgadmin/include/images/elephant32.xpm $RPM_BUILD_ROOT%{_iconsdir}/%{name}.png
+convert -size 48x48 pgadmin/include/images/elephant48.xpm $RPM_BUILD_ROOT%{_liconsdir}/%{name}.png
 
 %clean
 rm -rf %{buildroot}
