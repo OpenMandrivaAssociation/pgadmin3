@@ -17,6 +17,7 @@ BuildRequires:  postgresql-devel
 BuildRequires:  ImageMagick
 BuildRequires:  libxslt-devel
 
+BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 PostgreSQL Tools.
