@@ -1,5 +1,5 @@
 %define name    pgadmin3
-%define version 1.8.0
+%define version 1.8.1
 %define release %mkrel 1
 %define Summary Graphical client for PostgreSQL
 
@@ -9,14 +9,13 @@ Version:        %{version}
 Release:        %{release}
 License:        Artistic
 Group:          Databases
-Source0:        %{name}-%{version}.tar.gz
+Source0:        ftp://ftp4.fr.postgresql.org/pub/mirrors/postgresql/pgadmin3/release/v%{version}/src/%{name}-%{version}.tar.gz
 URL:            http://www.pgadmin.org/
 
 BuildRequires:  wxgtku-devel >= 2.8
 BuildRequires:  postgresql-devel
 BuildRequires:  ImageMagick
 BuildRequires:  libxslt-devel
-
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
@@ -66,5 +65,3 @@ rm -rf %{buildroot}
 %{_liconsdir}/%{name}.png
 %{_miconsdir}/%{name}.png
 %{_datadir}/applications/mandriva-%{name}.desktop
-
-
