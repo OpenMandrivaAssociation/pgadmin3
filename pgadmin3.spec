@@ -1,5 +1,5 @@
 %define name    pgadmin3
-%define version 1.10.0
+%define version 1.10.1
 %define release %mkrel 1
 %define Summary Graphical client for PostgreSQL
 
