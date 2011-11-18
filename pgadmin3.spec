@@ -58,3 +58,4 @@ rm -rf %{buildroot}
 %{_liconsdir}/%{name}.png
 %{_miconsdir}/%{name}.png
 %{_datadir}/applications/%{name}.desktop
+%{_bindir}/png2c
