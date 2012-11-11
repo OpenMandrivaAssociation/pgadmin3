@@ -1,0 +1,25 @@
+--- acinclude.m4.link	2010-09-01 15:30:36.000000000 +0200
++++ acinclude.m4	2011-02-28 14:44:52.000000000 +0100
+@@ -524,7 +524,13 @@
+ 					PG_SSL="no"
+ 				fi
+ 			else
++				saved_LIBS=$LIBS
++				LIBS="$LIBS -lssl"
+ 				AC_CHECK_LIB(pq, SSL_connect, [PG_SSL=yes], [PG_SSL=no])
++				if test "$PG_SSL" = "no"
++				then
++					LIBS=$saved_LIBS
++				fi
+ 			fi
+ 		fi
+ 		else
+@@ -535,7 +541,7 @@
+ 		then
+ 		# Check for Kerberos support
+ 
+-				LDFLAGS="$LDFLAGS -lkrb5"
++				LIBS="$LIBS -lkrb5"
+ 
+ 		if test "$BUILD_STATIC" = "yes"
+ 		then

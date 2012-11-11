@@ -1,0 +1,11 @@
+--- pkg/pgadmin3.desktop.OLD	2011-03-11 12:32:24.822776554 +0100
++++ pkg/pgadmin3.desktop	2011-03-11 12:32:39.323804644 +0100
+@@ -2,7 +2,7 @@
+ Encoding=UTF-8
+ Name=pgAdmin III
+ Exec=/usr/bin/pgadmin3
+-Icon=/usr/share/pgadmin3/pgAdmin3.png
++Icon=pgadmin3
+ Type=Application
+ Categories=Application;Development;
+ MimeType=text/html
