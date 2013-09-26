@@ -1,12 +1,9 @@
-%define name    pgadmin3
-%define version 1.16.1
-%define release 1
 %define Summary Graphical client for PostgreSQL
 
 Summary:        %{Summary}
-Name:           %{name}
-Version:        %{version}
-Release:        %{release}
+Name:           pgadmin3
+Version:        1.18.0
+Release:        1
 License:        Artistic
 Group:          Databases
 Source0:        ftp://ftp4.fr.postgresql.org/pub/mirrors/postgresql/pgadmin3/release/v%{version}/src/%{name}-%{version}.tar.gz
@@ -50,4 +47,3 @@ convert -size 48x48 pgadmin/include/images/pgAdmin3.png $RPM_BUILD_ROOT%{_licons
 %{_liconsdir}/%{name}.png
 %{_miconsdir}/%{name}.png
 %{_datadir}/applications/%{name}.desktop
-%{_bindir}/png2c
