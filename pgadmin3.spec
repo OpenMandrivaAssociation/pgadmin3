@@ -2,11 +2,11 @@
 
 Summary:        %{Summary}
 Name:           pgadmin3
-Version:        1.18.0
+Version:        1.18.1
 Release:        1
 License:        Artistic
 Group:          Databases
-Source0:        ftp://ftp4.fr.postgresql.org/pub/mirrors/postgresql/pgadmin3/release/v%{version}/src/%{name}-%{version}.tar.gz
+Source0:        ftp://ftp4.fr.postgresql.org/pub/mirrors/postgresql/pgadmin3/release/v1.18.1/src/%{name}-%{version}.tar.gz
 Patch0:		pgadmin3-1.12.2-desktop-file.patch
 URL:            http://www.pgadmin.org/
 BuildRequires:  wxgtku-devel >= 2.8
@@ -35,10 +35,10 @@ desktop-file-install --dir %{buildroot}/%{_datadir}/applications/ \
 	--add-category=Database \
 	pkg/%{name}.desktop
 
-install -d $RPM_BUILD_ROOT{%{_iconsdir},%{_miconsdir},%{_liconsdir}}
-convert -size 16x16 pgadmin/include/images/pgAdmin3.png $RPM_BUILD_ROOT%{_miconsdir}/%{name}.png
-convert -size 32x32 pgadmin/include/images/pgAdmin3.png $RPM_BUILD_ROOT%{_iconsdir}/%{name}.png
-convert -size 48x48 pgadmin/include/images/pgAdmin3.png $RPM_BUILD_ROOT%{_liconsdir}/%{name}.png
+install -d %{buildroot}{%{_iconsdir},%{_miconsdir},%{_liconsdir}}
+convert -size 16x16 pgadmin/include/images/pgAdmin3.png %{buildroot}%{_miconsdir}/%{name}.png
+convert -size 32x32 pgadmin/include/images/pgAdmin3.png %{buildroot}%{_iconsdir}/%{name}.png
+convert -size 48x48 pgadmin/include/images/pgAdmin3.png %{buildroot}%{_liconsdir}/%{name}.png
 
 %files
 %{_bindir}/%{name}
