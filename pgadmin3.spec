@@ -3,7 +3,7 @@
 Summary:        %{Summary}
 Name:           pgadmin3
 Version:        1.18.1
-Release:        1
+Release:        2
 License:        Artistic
 Group:          Databases
 Source0:        ftp://ftp4.fr.postgresql.org/pub/mirrors/postgresql/pgadmin3/release/v1.18.1/src/%{name}-%{version}.tar.gz
