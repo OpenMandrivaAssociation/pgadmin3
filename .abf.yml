@@ -1,5 +1,5 @@
 removed_sources:
   pgadmin3-1.16.1.tar.gz: f5eaa8184d9e30662eec3a7bf639258eb8a658a3
-  pgadmin3-1.18.0.tar.gz: f0b40d38cb1504054f9350b755e0398b89ce5ef5
-sources:
   pgadmin3-1.18.1.tar.gz: 9ea154ad4441f50531a518d420c5fc8540215315
+sources:
+  pgadmin3-1.22.2.tar.gz: 2b62630d3ee90b44c440d673ca8bb3dcfe010e18

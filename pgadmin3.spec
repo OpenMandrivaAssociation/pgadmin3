@@ -2,16 +2,18 @@
 
 Summary:        %{Summary}
 Name:           pgadmin3
-Version:        1.18.1
-Release:        2
+Version:        1.22.2
+Release:        1
 License:        Artistic
 Group:          Databases
 Source0:        ftp://ftp4.fr.postgresql.org/pub/mirrors/postgresql/pgadmin3/release/v1.18.1/src/%{name}-%{version}.tar.gz
 Patch0:		pgadmin3-1.12.2-desktop-file.patch
+Patch1:         fix-openssl11.patch
 URL:            http://www.pgadmin.org/
-BuildRequires:  wxgtku-devel >= 2.8
+#BuildRequires:  wxgtku-devel >= 2.8
 BuildRequires:  postgresql-devel
 BuildRequires:  desktop-file-utils
+BuildRequires:  wxgtku3.0-devel >= 3.0
 BuildRequires:  pkgconfig(libxslt)
 BuildRequires:  imagemagick
 
@@ -21,14 +23,17 @@ PostgreSQL Tools.
 %prep
 %setup -q
 %patch0 -p0 -b .desktop
+%patch1 -p0 -b .openssl11
 
 %build
 autoreconf -fi
-%configure2_5x
-%make
+export CXXFLAGS="$CXXFLAGS -Wno-narrowing"
+%configure  --with-wx-version=3.0
+
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 
 desktop-file-install --dir %{buildroot}/%{_datadir}/applications/ \
 	--remove-category=Application \
