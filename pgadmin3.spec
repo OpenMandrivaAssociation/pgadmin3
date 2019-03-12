@@ -15,6 +15,7 @@ BuildRequires:  postgresql-devel
 BuildRequires:  desktop-file-utils
 BuildRequires:  wxgtku3.0-devel >= 3.0
 BuildRequires:  pkgconfig(libxslt)
+BuildRequires:  pkgconfig(openssl)
 BuildRequires:  imagemagick
 
 %description
