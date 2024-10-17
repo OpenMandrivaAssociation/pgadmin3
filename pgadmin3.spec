@@ -9,7 +9,7 @@ Group:          Databases
 Source0:        ftp://ftp4.fr.postgresql.org/pub/mirrors/postgresql/pgadmin3/release/v1.18.1/src/%{name}-%{version}.tar.gz
 Patch0:		pgadmin3-1.12.2-desktop-file.patch
 Patch1:         fix-openssl11.patch
-URL:            http://www.pgadmin.org/
+URL:            https://www.pgadmin.org/
 #BuildRequires:  wxgtku-devel >= 2.8
 BuildRequires:  postgresql-devel
 BuildRequires:  desktop-file-utils
