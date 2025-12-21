@@ -11,6 +11,11 @@ Patch0:		pgadmin3-1.12.2-desktop-file.patch
 Patch1:         fix-openssl11.patch
 URL:            https://www.pgadmin.org/
 #BuildRequires:  wxgtku-devel >= 2.8
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:  postgresql-devel
 BuildRequires:  desktop-file-utils
 BuildRequires:  wxgtku3.0-devel >= 3.0
