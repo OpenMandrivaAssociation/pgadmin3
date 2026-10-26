@@ -19,6 +19,8 @@ BuildRequires:	make
 BuildRequires:  postgresql-devel
 BuildRequires:  desktop-file-utils
 BuildRequires:  lib64wxu3.2-devel
+# wx-config is a symlink to the Qt config script, which lives in this package.
+BuildRequires:  lib64wxqtu3.2-devel
 BuildRequires:  pkgconfig(libxslt)
 BuildRequires:  pkgconfig(openssl)
 BuildRequires:  imagemagick
