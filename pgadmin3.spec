@@ -30,8 +30,6 @@ PostgreSQL Tools.
 %setup -q
 %patch 0 -p0 -b .desktop
 %patch 1 -p0 -b .openssl11
-# /usr/bin/wx-config may be wx 3.0, which rejects --version=3.2.
-sed -i 's|${WX_HOME}/bin/wx-config|wx-config-3.2|g' acinclude.m4
 
 %build
 autoreconf -fi
