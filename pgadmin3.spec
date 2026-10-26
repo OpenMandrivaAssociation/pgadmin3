@@ -23,6 +23,7 @@ BuildRequires:  lib64wxu3.2-devel
 BuildRequires:  lib64wxqtu3.2-devel
 BuildRequires:  pkgconfig(libxslt)
 BuildRequires:  pkgconfig(openssl)
+BuildRequires:  pkgconfig(libssh2)
 BuildRequires:  imagemagick
 # wx-config asks pkg-config for these, then overwrites the include flags.
 BuildRequires:  pkgconfig(Qt5Core)
@@ -46,6 +47,12 @@ sed -i 's/#ifdef __WXGTK__/#if defined(__WXGTK__) || defined(__WXQT__)/' \
 	pgadmin/ctl/ctlDefaultSecurityPanel.cpp pgadmin/ctl/ctlSecurityPanel.cpp
 # ColTypClass() is const and fills this cache. wxArrayInt::operator[] is const there.
 sed -i 's/wxArrayInt colClasses;/mutable wxArrayInt colClasses;/' pgadmin/include/db/pgSet.h
+# The bundled libssh2 uses OpenSSL cipher methods that are gone.
+sed -i '/include libssh2\/module.mk/d' pgadmin/Makefile.am
+sed -i 's| -I$(top_srcdir)/pgadmin/include/libssh2||g' pgadmin/Makefile.am
+sed -i 's/LIBS="$LIBS $LIBSSL"/LIBS="$LIBS $LIBSSL -lssh2"/' configure.ac
+sed -i '/^#undef ssize_t$/d; /^#define ssize_t long$/d' pgadmin/utils/sshTunnel.cpp
+sed -i 's|#include "libssh2/libssh2.h"|#include <libssh2.h>|' pgadmin/utils/sshTunnel.cpp
 # A bitmap converts to both wxBitmap and wxBitmapBundle, so AddTool is ambiguous.
 python << 'PY'
 import os
