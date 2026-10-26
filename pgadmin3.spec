@@ -37,6 +37,8 @@ sed -i 's/#define PG_KEYWORD(a,b,c)/#define PG_KEYWORD(a,b,c,d)/' pgadmin/db/key
 # wxQt defines none of the ports this file tests, so bordersize stayed unset.
 sed -i 's/#ifdef __WXGTK__/#if defined(__WXGTK__) || defined(__WXQT__)/' \
 	pgadmin/ctl/ctlDefaultSecurityPanel.cpp pgadmin/ctl/ctlSecurityPanel.cpp
+# ColTypClass() is const and fills this cache. wxArrayInt::operator[] is const there.
+sed -i 's/wxArrayInt colClasses;/mutable wxArrayInt colClasses;/' pgadmin/include/db/pgSet.h
 
 %build
 autoreconf -fi
