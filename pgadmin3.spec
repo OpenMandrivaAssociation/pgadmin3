@@ -6,7 +6,7 @@ Version:        1.22.2
 Release:        2
 License:        Artistic
 Group:          Databases
-Source0:        ftp://ftp4.fr.postgresql.org/pub/mirrors/postgresql/pgadmin3/release/v1.18.1/src/%{name}-%{version}.tar.gz
+Source0:        https://ftp.postgresql.org/pub/pgadmin/pgadmin3/v%{version}/src/%{name}-%{version}.tar.gz
 Patch0:		pgadmin3-1.12.2-desktop-file.patch
 Patch1:         fix-openssl11.patch
 URL:            https://www.pgadmin.org/
