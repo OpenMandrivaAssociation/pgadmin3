@@ -53,6 +53,8 @@ sed -i 's| -I$(top_srcdir)/pgadmin/include/libssh2||g' pgadmin/Makefile.am
 sed -i 's/LIBS="$LIBS $LIBSSL"/LIBS="$LIBS $LIBSSL -lssh2"/' configure.ac
 sed -i '/^#undef ssize_t$/d; /^#define ssize_t long$/d' pgadmin/utils/sshTunnel.cpp
 sed -i 's|#include "libssh2/libssh2.h"|#include <libssh2.h>|' pgadmin/utils/sshTunnel.cpp
+# lld honors this Windows pragma and then looks for Ws2_32.lib.
+sed -i 's|^#pragma comment (lib, "Ws2_32.lib")|#ifdef _WIN32\n#pragma comment (lib, "Ws2_32.lib")\n#endif|' pgadmin/utils/sshTunnel.cpp
 # A bitmap converts to both wxBitmap and wxBitmapBundle, so AddTool is ambiguous.
 python << 'PY'
 import os
