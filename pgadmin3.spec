@@ -28,8 +28,8 @@ PostgreSQL Tools.
 
 %prep
 %setup -q
-%patch0 -p0 -b .desktop
-%patch1 -p0 -b .openssl11
+%patch 0 -p0 -b .desktop
+%patch 1 -p0 -b .openssl11
 
 %build
 autoreconf -fi
