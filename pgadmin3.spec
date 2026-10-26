@@ -34,7 +34,7 @@ PostgreSQL Tools.
 %build
 autoreconf -fi
 export CXXFLAGS="$CXXFLAGS -Wno-narrowing"
-%configure  --with-wx-version=3.0
+%configure  --with-wx-version=3.2
 
 %make_build
 
