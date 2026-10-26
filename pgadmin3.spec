@@ -133,7 +133,8 @@ PY
 %build
 autoreconf -fi
 # The Qt wx-config records these include paths, then replaces them.
-export CXXFLAGS="$CXXFLAGS -Wno-narrowing $(pkg-config --cflags Qt5Core Qt5Gui Qt5Widgets Qt5OpenGL Qt5Test)"
+# lex.pgs.cc is flex output and still uses register, which C++17 rejects.
+export CXXFLAGS="$CXXFLAGS -Wno-narrowing -Wno-register $(pkg-config --cflags Qt5Core Qt5Gui Qt5Widgets Qt5OpenGL Qt5Test)"
 %configure  --with-wx-version=3.2
 
 %make_build
