@@ -32,6 +32,11 @@ PostgreSQL Tools.
 %setup -q
 %patch 0 -p0 -b .desktop
 %patch 1 -p0 -b .openssl11
+# PostgreSQL kwlist.h now passes a fourth PG_KEYWORD argument.
+sed -i 's/#define PG_KEYWORD(a,b,c)/#define PG_KEYWORD(a,b,c,d)/' pgadmin/db/keywords.c
+# wxQt defines none of the ports this file tests, so bordersize stayed unset.
+sed -i 's/#ifdef __WXGTK__/#if defined(__WXGTK__) || defined(__WXQT__)/' \
+	pgadmin/ctl/ctlDefaultSecurityPanel.cpp pgadmin/ctl/ctlSecurityPanel.cpp
 
 %build
 autoreconf -fi
